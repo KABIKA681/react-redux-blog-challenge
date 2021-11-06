@@ -1,0 +1,47 @@
+.homeHomeItems1{
+    display: flex;
+    margin-left: 0rem;
+    flex-wrap: wrap;
+    /* width: 1500px; */
+}
+.postsPost{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.pposts{
+    width: 400px;
+    margin-top: 5rem;
+    margin-left: 10rem;
+    margin-right: -5rem;
+    font-family: 'Josefin Sans', sans-serif; 
+}
+.homePosts img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0px 0px 90px 0px rgb(114, 110, 103);
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+.homePosts img:hover{
+    width: 410px;
+    height: 310px;
+    box-shadow: 0px 0px 90px 0px rgb(223, 222, 221);
+
+}
+.postDate{
+    color: rgb(148, 146, 146);
+    font-size: 18px;
+    margin: 10px;
+}
+.postTitle h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.postBody{
+    color: gray;
+    margin-top: 10px;
+}
