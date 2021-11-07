@@ -4,6 +4,7 @@ import axios from "axios";
 import { setProducts } from "../../redux/actions/productActions";
 import PostComponents from "../../components/productComponents/ProductComponents";
 import Title from "../../components/Title/Title"
+import  {API_URL} from "../../redux/constants/actions-types";
 import "./home.css"
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
 
     const fetchProducts = async () => {
         const response = await axios
-            .get("https://fakestoreapi.com/products")
+            .get (API_URL)
             .catch((err) => {
                 console.log("Err", err)
             });

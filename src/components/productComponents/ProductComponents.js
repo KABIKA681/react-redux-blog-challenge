@@ -10,8 +10,7 @@ const ProductComponents = () => {
   const renderPosts = products.map((product) => {
     const {id, title, body } = product;
         return (
-          <div className="postsPost">
-            <Link to="/singlePost">
+          <div className="postsPost"> <Link to="/singlePost">
           <div className="pposts">
                  <div className="homePosts">
                      <img src="https://images.pexels.com/photos/9705763/pexels-photo-9705763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />

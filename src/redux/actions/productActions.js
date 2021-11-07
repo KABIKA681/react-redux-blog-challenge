@@ -1,4 +1,7 @@
 import { ActionTypes } from "../constants/actions-types";
+import axios from "axios"
+import { useSelector } from "react-redux";
+
 
 export const setProducts = (products) => {
   return {
