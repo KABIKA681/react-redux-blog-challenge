@@ -1,33 +1,25 @@
-import { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import axios from "axios";
-import { setProducts } from "../../redux/actions/productActions";
-import PostComponents from "../../components/productComponents/ProductComponents";
 import Title from "../../components/Title/Title"
-import  {API_URL} from "../../redux/constants/actions-types";
+import { useEffect } from "react";
+import fetchProduct from "../../redux/actions/fetchProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./home.css"
+import Loader from "../../components/common/Loader";
 
 export default function Home() {
-    const products = useSelector((state) => state);
+    const { products : { productList }} = useSelector(({products}) => ({products}))
+    // const data = useSelector((state) => state.products);
     const dispatch = useDispatch();
 
-    const fetchProducts = async () => {
-        const response = await axios
-            .get (API_URL)
-            .catch((err) => {
-                console.log("Err", err)
-            });
-        dispatch(setProducts(response.data));
-    };
 
     useEffect(() => {
-        fetchProducts();
-    });
-    console.log("Products: ", products)
+        fetchProduct()(dispatch)
+    }, [])
+
+    console.log("productList: ", productList)
 
     return (
         <>
-
             <div className="home">
                 <Title />
                 <div className="homeHomeItems">
@@ -41,10 +33,32 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
-            <div className="homeHomeItems1">
-                <PostComponents />
-            </div>
+            <div className="homeList">
+            {productList.data ? productList.data.map((item) => (
+             
+                
+                <div className="homeHomeItems1">
+                <div className="postsPost"> <Link to="/singlePost">
+                <div className="pposts">
+                      <div className="homePosts">
+                           <img src="https://images.pexels.com/photos/9705763/pexels-photo-9705763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+                                </div>
+                                  <div className="postDate"> 03 November 2021</div>
+                                     <div className="postTitle">
+                                         <h2>{item.title}</h2>
+                                      </div>
+                                   <div className="postBody">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nesciunt accusamus sit facere aut itaque excepturi rerum hic? Fugiat debitis blanditiis enim eum ibus quidem non.</p>
+                                </div>
+                            </div>
+                    </Link>
+                        </div>
+                        
+                    </div> 
+                    
+                          
+           )) : (<Loader/>)}
+            </div>  
         </>
 
 

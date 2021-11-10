@@ -34,11 +34,15 @@
 .homeBody{
     font-size: 3rem;
 }
-.postsPost{
+
+/*===========*/
+
+/* .postsPost{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+} */
+
 .pposts{
     width: 400px;
     margin-top: 5rem;
@@ -46,6 +50,7 @@
     margin-right: -5rem;
     font-family: 'Josefin Sans', sans-serif; 
 }
+
 .homePosts img{
     width: 400px;
     height: 300px;
@@ -74,4 +79,13 @@
 .postBody{
     color: gray;
     margin-top: 10px;
+}
+.homeHomeItems1{
+    margin-left: 0rem;
+    /* display: flex; */
+    
+} 
+.homeList{
+    display: flex;
+    flex-wrap: wrap;
 }

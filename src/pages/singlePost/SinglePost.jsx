@@ -2,12 +2,12 @@ import React, { useEffect} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct } from "../../redux/actions/productActions";
+import { selectedProduct } from "../../redux/actions/fetchProduct";
 import "./singlePost.css"
 
 const SingleProduct = () => {
     const product = useSelector(state => state.product);
-    // const { title, body} = product
+    console.log(product)
     const { productId } = useParams();
     const dispatch = useDispatch()
 
@@ -20,7 +20,7 @@ const SingleProduct = () => {
              console.log("Err", err)
             })
         
-        dispatch(selectedProduct(res.data));
+        // dispatch(selectedProduct(res.data));
     }
     useEffect(() => {
          fetchSinglePost()
